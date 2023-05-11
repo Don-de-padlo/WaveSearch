@@ -26,9 +26,9 @@ namespace lab3
 
         private void InitByNull()
         {
-            for (int i = 0; i < sizeArr; i++)
+            for (int i = 0; i < sizeArr-1; i++)
             {
-                for (int j = 0; j < sizeArr; j++)
+                for (int j = 0; j < sizeArr-1; j++)
                 {
                     labelArr[i, j] = null;
                 }
@@ -38,28 +38,82 @@ namespace lab3
 
         public void AddYellowLb(Label lb)
         {
-            labelArr[lb.Name[0], lb.Name[2]] = lb;
+            int x =Int32.Parse(lb.Name.Substring(0 , lb.Name.IndexOf('_')));
+            int y = Int32.Parse(lb.Name.Substring(lb.Name.IndexOf('_')+1));
+            labelArr[x, y] = lb;
         }
         public void DeleteYellowLb(Label lb)
         {
-            labelArr[lb.Name[0], lb.Name[2]] = null;
+            int x = Int32.Parse(lb.Name.Substring(0, lb.Name.IndexOf('_')));
+            int y = Int32.Parse(lb.Name.Substring(lb.Name.IndexOf('_') + 1));
+            labelArr[x, y] = null;
         }
         public Label FindFarRightLb()
         {
             Label temp = null;
-            for (int i=0; i< sizeArr; i++)
+            for (int i=0; i< sizeArr ; i++)
             {
-                temp = null;
+                //temp = null;
                 for (int j = 0; j < sizeArr; j++)
                 {
-                    if (temp == null && labelArr[j,i] != null)
+                    if ( labelArr[i,j] != null)
+                    {
+                        temp = labelArr[i, j];
+                    }
+                    
+                }
+                
+            }
+            return temp;
+        }
+        public Label FindFarLefttLb()
+        {
+            Label temp = null;
+            for (int i = sizeArr - 1; i >= 0; i--)
+            {
+                //temp = null;
+                for (int j = sizeArr - 1; j >= 0; j--)
+                {
+                    if (labelArr[i, j] != null)
+                    {
+                        temp = labelArr[i, j];
+                    }
+                    
+                }
+            }
+            return temp;
+        }
+
+        public Label FindFarDownLb()
+        {
+            Label temp = null;
+            for (int i = 0; i < sizeArr; i++)
+            {
+                //temp = null;
+                for (int j = 0; j < sizeArr; j++)
+                {
+                    if (labelArr[j, i] != null)
                     {
                         temp = labelArr[j, i];
                     }
-                    else
+                    
+                }
+            }
+            return temp;
+        }
+        public Label FindFarUpLb()
+        {
+            Label temp = null;
+            for (int i = sizeArr - 1; i >= 0; i--)
+            {
+                
+                for (int j = sizeArr - 1; j >= 0; j--)
+                {
+                    if (labelArr[j, i] != null)
                     {
-                        break;
+                        temp = labelArr[j, i];
                     }
+                    
                 }
             }
             return temp;

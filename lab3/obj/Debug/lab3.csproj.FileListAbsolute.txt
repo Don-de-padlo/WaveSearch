@@ -8,3 +8,13 @@ C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\lab3\obj\Debug\lab3.csproj.Genera
 C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\lab3\obj\Debug\lab3.csproj.CoreCompileInputs.cache
 C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\lab3\obj\Debug\lab3.exe
 C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\lab3\obj\Debug\lab3.pdb
+C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\WaveSearch\lab3\bin\Debug\lab3.exe.config
+C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\WaveSearch\lab3\bin\Debug\lab3.exe
+C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\WaveSearch\lab3\bin\Debug\lab3.pdb
+C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\WaveSearch\lab3\obj\Debug\lab3.csproj.AssemblyReference.cache
+C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\WaveSearch\lab3\obj\Debug\lab3.Form1.resources
+C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\WaveSearch\lab3\obj\Debug\lab3.Properties.Resources.resources
+C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\WaveSearch\lab3\obj\Debug\lab3.csproj.GenerateResource.cache
+C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\WaveSearch\lab3\obj\Debug\lab3.csproj.CoreCompileInputs.cache
+C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\WaveSearch\lab3\obj\Debug\lab3.exe
+C:\Users\don_d\Desktop\ПОРНО\AI\lab3\lab3\WaveSearch\lab3\obj\Debug\lab3.pdb

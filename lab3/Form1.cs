@@ -13,6 +13,7 @@ namespace lab3
     public partial class Form1 : Form
     {
         private Label[,] labelArr = new Label[16, 16];
+        YellowObject yo = new YellowObject(16);
 
         private void InitLabelArr()
         {
@@ -61,10 +62,12 @@ namespace lab3
                 case (MouseButtons.Right):
                     if (lb.BackColor == Color.Yellow)
                     {
-                        lb.BackColor = Color.Aqua; ;
+                        lb.BackColor = Color.Aqua;
+                        yo.DeleteYellowLb(lb);
                     }
                     else
                     {
+                        yo.AddYellowLb(lb);
                         lb.BackColor = Color.Yellow;
                     }
                     break;
@@ -86,7 +89,18 @@ namespace lab3
 
         private void startBtn_Click(object sender, EventArgs e)
         {
+            Label lb;
+            lb = yo.FindFarRightLb() ;
+            lb.BackColor = Color.Red;
 
+            lb = yo.FindFarLefttLb();
+            lb.BackColor = Color.Green;
+
+            lb = yo.FindFarDownLb();
+            lb.BackColor = Color.Gray;
+
+            lb = yo.FindFarUpLb();
+            lb.BackColor = Color.White;
         }
     }
 }
