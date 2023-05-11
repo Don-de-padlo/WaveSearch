@@ -89,7 +89,7 @@ namespace lab3
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            Label lb;
+            /*Label lb;
             lb = yo.FindFarRightLb() ;
             lb.BackColor = Color.Red;
 
@@ -100,7 +100,11 @@ namespace lab3
             lb.BackColor = Color.Gray;
 
             lb = yo.FindFarUpLb();
-            lb.BackColor = Color.White;
+            lb.BackColor = Color.White;*/
+            //yo.SlideRight();
+            //yo.SlideDown();
+            yo.SlideBisector();
+            yo.SynchrLb(labelArr);
         }
     }
 }

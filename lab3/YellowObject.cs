@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,16 @@ using System.Windows.Forms;
 
 namespace lab3
 {
+    public struct MatrixLabel
+    {
+        public MatrixLabel(Label lb , bool visited)
+        {
+            this.label = lb;
+            this.visited = visited;
+        }
+        public Label label { get; set; }
+        public bool visited { get; set; }
+    }
     class YellowObject
     {
         private Label [,] labelArr;
@@ -14,16 +25,27 @@ namespace lab3
         private Label farLeft;
         private Label farUp;
         private Label farDown;
+        private MatrixLabel[,] MLb;
         int sizeArr;
 
 
         public YellowObject(int sizeArrPlace)
         {
             labelArr = new Label[sizeArrPlace, sizeArrPlace];
+            MLb = new MatrixLabel[sizeArrPlace, sizeArrPlace];
             sizeArr = sizeArrPlace;
             InitByNull();
         }
-
+        private void InitMatrixLabel()
+        {
+            for (int i = 0; i < sizeArr - 1; i++)
+            {
+                for (int j = 0; j < sizeArr - 1; j++)
+                {
+                    MLb[i, j] = new MatrixLabel(labelArr[i,j] , false);
+                }
+            }
+        }
         private void InitByNull()
         {
             for (int i = 0; i < sizeArr-1; i++)
@@ -117,6 +139,90 @@ namespace lab3
                 }
             }
             return temp;
+        }
+        public void SlideRight()
+        {
+            InitMatrixLabel();
+            Label temp = null;
+            for (int i = 0; i < sizeArr; i++)
+            {
+                
+                for (int j = 0; j < sizeArr; j++)
+                {
+                    if (MLb[i , j].label != null && !MLb[i, j].visited )
+                    {
+                        temp = labelArr[i, j];
+                        if(i < sizeArr - 1) labelArr[i+1, j ] = temp;
+                        MLb[i, j].visited = true;
+                    }
+
+                }
+                
+            }
+            
+        }
+
+        public void SlideDown()
+        {
+            InitMatrixLabel();
+            Label temp = null;
+            for (int i = 0; i < sizeArr; i++)
+            {
+
+                for (int j = 0; j < sizeArr; j++)
+                {
+                    if (MLb[i, j].label != null && !MLb[i, j].visited)
+                    {
+                        temp = labelArr[i, j];
+                        if (j < sizeArr - 1) labelArr[i , j+1] = temp;
+                        MLb[i, j].visited = true;
+                    }
+
+                }
+
+            }
+
+        }
+        public void SlideBisector()
+        {
+            InitMatrixLabel();
+            Label temp = null;
+            for (int i = 0; i < sizeArr; i++)
+            {
+
+                for (int j = 0; j < sizeArr; j++)
+                {
+                    if (MLb[i, j].label != null && !MLb[i, j].visited)
+                    {
+                        temp = labelArr[i, j];
+                        if (i < sizeArr - 1 && j < sizeArr - 1) labelArr[i + 1 , j + 1] = temp;
+                        MLb[i, j].visited = true;
+                    }
+
+                }
+
+            }
+
+        }
+        public void SynchrLb(Label[,] synch)
+        {
+           
+            for (int i = 0; i < sizeArr; i++)
+            {
+                
+                for (int j = 0; j < sizeArr; j++)
+                {
+                    if (synch[i , j].BackColor  == Color.Yellow && labelArr[i , j] == null)
+                    {
+                        synch[i, j].BackColor = Color.Aqua;
+                    }
+                    if (synch[i, j].BackColor == Color.Aqua && labelArr[i, j] != null)
+                    {
+                        synch[i, j].BackColor = Color.Yellow;
+                    }
+                }
+
+            }
         }
     }
 }
