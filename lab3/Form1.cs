@@ -102,8 +102,13 @@ namespace lab3
             lb = yo.FindFarUpLb();
             lb.BackColor = Color.White;*/
             //yo.SlideRight();
+            //yo.SlideLeft();
             //yo.SlideDown();
-            yo.SlideBisector();
+            //yo.SlideUp();
+            //yo.SlideBisector();
+            //yo.SlideBisectorRDToLUp();
+            //yo.SlideBisectorLDToRUp();
+            yo.SlideBisectorRUpToLDown();
             yo.SynchrLb(labelArr);
         }
     }

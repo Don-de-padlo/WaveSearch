@@ -38,9 +38,9 @@ namespace lab3
         }
         private void InitMatrixLabel()
         {
-            for (int i = 0; i < sizeArr - 1; i++)
+            for (int i = 0; i < sizeArr ; i++)
             {
-                for (int j = 0; j < sizeArr - 1; j++)
+                for (int j = 0; j < sizeArr ; j++)
                 {
                     MLb[i, j] = new MatrixLabel(labelArr[i,j] , false);
                 }
@@ -161,7 +161,27 @@ namespace lab3
             }
             
         }
+        public void SlideLeft()
+        {
+            InitMatrixLabel();
+            Label temp = null;
+            for (int i = 0; i < sizeArr; i++)
+            {
 
+                for (int j = 0; j < sizeArr; j++)
+                {
+                    if (MLb[i, j].label != null && !MLb[i, j].visited)
+                    {
+                        temp = labelArr[i, j];
+                        if (i > 0) labelArr[i - 1 , j] = temp;
+                        MLb[i, j].visited = true;
+                    }
+
+                }
+
+            }
+
+        }
         public void SlideDown()
         {
             InitMatrixLabel();
@@ -183,6 +203,27 @@ namespace lab3
             }
 
         }
+        public void SlideUp()
+        {
+            InitMatrixLabel();
+            Label temp = null;
+            for (int i = 0; i < sizeArr; i++)
+            {
+
+                for (int j = 0; j < sizeArr; j++)
+                {
+                    if (MLb[i, j].label != null && !MLb[i, j].visited)
+                    {
+                        temp = labelArr[i, j];
+                        if (j > 0) labelArr[i, j - 1] = temp;
+                        MLb[i, j].visited = true;
+                    }
+
+                }
+
+            }
+
+        }
         public void SlideBisector()
         {
             InitMatrixLabel();
@@ -196,6 +237,78 @@ namespace lab3
                     {
                         temp = labelArr[i, j];
                         if (i < sizeArr - 1 && j < sizeArr - 1) labelArr[i + 1 , j + 1] = temp;
+                        MLb[i, j].visited = true;
+                    }
+
+                }
+
+            }
+
+        }
+        public void SlideBisectorRDToLUp()
+        {
+            InitMatrixLabel();
+            Label temp = null;
+            for (int i = 0; i < sizeArr; i++)
+            {
+
+                for (int j = 0; j < sizeArr; j++)
+                {
+                   
+                    if (MLb[i, j].label != null && !MLb[i, j].visited)
+                    {
+                        
+                        temp = labelArr[i, j];
+                        if (i > 0 && j > 0) labelArr[i - 1, j - 1] = temp;
+                        
+                        MLb[i, j].visited = true;
+                    }
+
+                }
+
+            }
+
+        }
+        public void SlideBisectorLDToRUp()
+        {
+            InitMatrixLabel();
+            Label temp = null;
+            for (int i = 0; i < sizeArr; i++)
+            {
+
+                for (int j = 0; j < sizeArr; j++)
+                {
+
+                    if (MLb[i, j].label != null && !MLb[i, j].visited)
+                    {
+
+                        temp = labelArr[i, j];
+                        if (i < sizeArr - 1 && j > 0) labelArr[i + 1, j - 1] = temp;
+
+                        MLb[i, j].visited = true;
+                    }
+
+                }
+
+            }
+
+        }
+        public void SlideBisectorRUpToLDown()
+        {
+            InitMatrixLabel();
+            Label temp = null;
+            for (int i = 0; i < sizeArr; i++)
+            {
+
+                for (int j = 0; j < sizeArr; j++)
+                {
+
+                    if (MLb[i, j].label != null && !MLb[i, j].visited)
+                    {
+
+                        temp = labelArr[i, j];
+                        if (i > 0  && j < sizeArr - 1) labelArr[i - 1, j + 1] = temp;
+
                         MLb[i, j].visited = true;
                     }
 
