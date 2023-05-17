@@ -40,7 +40,19 @@ namespace lab3
             InitializeComponent();
             InitLabelArr();
         }
-
+        private void DeleteAllOrange()
+        {
+            for (int i =0; i < 16; i++)
+            {
+                for (int j = 0; j < 16; j++)
+                {
+                    if (labelArr[i , j].BackColor == Color.DarkOrange)
+                    {
+                        labelArr[i, j].BackColor = Color.Aqua;
+                    }
+                }
+            }
+        }
         private void label1_Click(object sender, EventArgs e)
         {
             Label lb = (Label)sender;
@@ -60,15 +72,31 @@ namespace lab3
 
 
                 case (MouseButtons.Right):
-                    if (lb.BackColor == Color.Yellow)
+                    if (lb.BackColor == Color.DarkOrange)
                     {
                         lb.BackColor = Color.Aqua;
                         yo.DeleteYellowLb(lb);
+                        yo.DeleteStartLb(lb);
                     }
                     else
                     {
+                        DeleteAllOrange();
                         yo.AddYellowLb(lb);
-                        lb.BackColor = Color.Yellow;
+                        yo.AddStartLb(lb);
+                        lb.BackColor = Color.DarkOrange;
+                    }
+                    break;
+
+                case (MouseButtons.Middle):
+                    if (lb.BackColor == Color.YellowGreen)
+                    {
+                        lb.BackColor = Color.Aqua;
+                        yo.DeleteDestinationLb(lb);
+                    }
+                    else
+                    {
+                        yo.AddDestinationLb(lb);
+                        lb.BackColor = Color.YellowGreen;
                     }
                     break;
                 default:
@@ -101,15 +129,18 @@ namespace lab3
 
             lb = yo.FindFarUpLb();
             lb.BackColor = Color.White;*/
-            //yo.SlideRight();
-            //yo.SlideLeft();
-            //yo.SlideDown();
-            //yo.SlideUp();
-            //yo.SlideBisector();
-            //yo.SlideBisectorRDToLUp();
-            //yo.SlideBisectorLDToRUp();
-            yo.SlideBisectorRUpToLDown();
-            yo.SynchrLb(labelArr);
+            //yo.SlideRight(ref labelArr);
+            //yo.SlideLeft(ref labelArr);
+            //yo.SlideDown(ref labelArr);
+            //yo.SlideUp(ref labelArr);
+            //yo.SlideBisector(ref labelArr);
+            //yo.SlideBisectorRDToLUp(ref labelArr);
+            //yo.SlideBisectorLDToRUp(ref labelArr);
+            //yo.SlideBisectorRUpToLDown(ref labelArr);
+            //yo.SearchLeftRight(ref labelArr);
+            //yo.SearchUpDown(ref labelArr);
+            yo.SearchUpDownLeftRight(ref labelArr);
+            //yo.SynchrLb(labelArr);
         }
     }
 }
