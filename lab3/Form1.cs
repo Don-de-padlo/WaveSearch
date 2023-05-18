@@ -14,6 +14,7 @@ namespace lab3
     {
         private Label[,] labelArr = new Label[16, 16];
         YellowObject yo = new YellowObject(16);
+        
 
         private void InitLabelArr()
         {
@@ -28,7 +29,8 @@ namespace lab3
                     labelArr[i, j].Name = "" + i + "_" + j;
                     labelArr[i, j].Size = new System.Drawing.Size(25, 25);
                     labelArr[i, j].TabIndex = 0;
-                    labelArr[i, j].Text = "" + i + "_" + j;
+                    //labelArr[i, j].Text = "" + i + "_" + j;
+                    labelArr[i, j].Text = "" ;
                     labelArr[i, j].BackColor = Color.Aqua;
                     labelArr[i, j].Click += new EventHandler(label1_Click);
                     this.Controls.Add(labelArr[i, j]);
@@ -139,8 +141,26 @@ namespace lab3
             //yo.SlideBisectorRUpToLDown(ref labelArr);
             //yo.SearchLeftRight(ref labelArr);
             //yo.SearchUpDown(ref labelArr);
-            yo.SearchUpDownLeftRight(ref labelArr);
+            //yo.SearchUpDownLeftRight(ref labelArr);
             //yo.SynchrLb(labelArr);
+           
+            if(radioButton1.Checked) yo.WaveSearchDestination(ref labelArr);
+            if (bisectorRbn.Checked) yo.WaveSearchDestinationBisector(ref labelArr);
+            if (h_vRbn.Checked) yo.WaveSearchDestinationHorAndVert(ref labelArr);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 16; i++)
+            {
+                for (int j = 0; j < 16; j++)
+                {
+                   
+                    labelArr[i, j].Text = "";
+                    labelArr[i, j].BackColor = Color.Aqua;
+                    
+                }
+            }
         }
     }
 }
